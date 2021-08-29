@@ -165,7 +165,7 @@ Focus on the "soup to nuts" approach to problem solving
     - **pull** changes made by others to your computer
 
 - What you need to do
-    - read the [GitHub reference page](https://github.com/jfiksel/github-classroom-for-students)
+    - read the [GitHub reference page](https://github.com/econ122-f21/github-classroom-for-stduents)
     
 ## For rest of class
 
@@ -175,5 +175,5 @@ Focus on the "soup to nuts" approach to problem solving
 
 - Work on the `test-activity.Rmd` file in the `test-assignment` repo
     - Ask me questions
-    - By class time (2:45) Thursday, push your completed `test-activity.Rmd` and `test-activity.md` files to GitHub 
+    - By class time Wednesday, push your completed `test-activity.Rmd` and `test-activity.md` files to GitHub 
     - This assignment will act as extra credit towards your problem set score

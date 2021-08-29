@@ -12,15 +12,15 @@ Office hours:
 Textbook 1: [Modern Data Science with R](https://mdsr-book.github.io/) (1st edition)  
 Textbook 2: [An Introduction to Statistical Learning](https://link.springer.com/book/10.1007/978-1-4614-7138-7)
 
--   [Syllabus](ECON122_F2019_DataScience_StatisticalLearning.pdf)
--   [GitHub reference quick guide](https://github.com/jfiksel/github-classroom-for-students)
+-   [Syllabus](ECON122_F2021_DataScience_StatisticalLearning.pdf)
+-   [GitHub reference quick guide](https://github.com/econ122-f21/github-classroom-for-stduents)
 -   [GitHub reference full guide ](https://happygitwithr.com/index.html)
 -   Additional free resource: [R for Data Science](http://r4ds.had.co.nz/)
 
 ------------------------------------------------------------------------
 ### Assignments due
 
-- [Test assignment]() (due **09/03**) 
+- [Test assignment](https://classroom.github.com/a/mA9w-EL5) (due **09/03**) 
     - Solutions [.Rmd](PS/test-assignment-solution.Rmd) [.md](PS/test-assignment-solution.md)
 - [Problem Set 1]() (due **09/13**)
     - Solutions [.Rmd](PS/PS1-solution.Rmd) [.md](PS/PS1-solution.md)
@@ -34,7 +34,7 @@ Textbook 2: [An Introduction to Statistical Learning](https://link.springer.com/
     - Try to set up R, RStudio, Git, GitHub account (See [GitHub reference quick guide](https://github.com/econ122-f21/github-classroom-for-stduents) and See [GitHub reference full guide](https://happygitwithr.com/index.html) 
 -   in class: 
     -   day 1 slides: [.Rmd](docs/day1_IntroSlides.Rmd) [.html](https://econ122-f21.github.io/home/day1_IntroSlides.html)
-    -   [test assignment]()
+    -   [test assignment](https://classroom.github.com/a/mA9w-EL5)
 
 **Wednesday** (reproducibility, R Markdown)
 
