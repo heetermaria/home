@@ -74,17 +74,19 @@ carry out data analysis."
 
 ## [Data Science via the American Statistical Assocation](https://www.amstat.org/asa/files/pdfs/POL-DataScienceStatement.pdf)
 
-- "Statistics and machine learning play a central role in data science." 
-- "New problem-solving strategies are needed to develop '[soup to nuts](https://en.wikipedia.org/wiki/Soup_to_nuts)' pipelines that start with managing raw data and end with user-friendly efficient implementations of principled statistical methods and the communication of substantive results." 
+- Previously, many of the roles were split out
+   + Gathering and manging raw data
+   + Economic and statistical analysis
+   + Communication of substantive results
+- With a new emphasis on speed, combining these roles has a distinct advantage
+   
 
 ## Data Science in Economics
 
-- Currently not heavily used but adoption is increasing: [Stanford Data Science Initiative in Economics](https://sdsi.stanford.edu/about/data-science-economics)
-
+- Currently not heavily used but adoption is increasing: [Stanford Data Science Initiative in Economics](https://datascience.stanford.edu/research/research-areas/data-science-economics)
 - Questions in economics typically focus on answering **causal** questions
     + What is the impact of education on labor outcomes?
     + What is the impact of fiscal policy on GDP? 
-
 - When can we use Data Science tools to help inform economics?
     + When working with big data 
         - Ex: Using **text analysis** algorithms to better understand Yelp or Twitter data
@@ -106,7 +108,7 @@ carry out data analysis."
 
 Some warnings to heed
 
-- These days it's almost **TOO EASY** to implement complicated statistical algorithms with one line of code.
+- These days it's almost **TOO EASY** to implement complicated statistical algorithms with one line of code
     + This makes it easy to create fancy graphs and results without really understanding what you are doing
 - One advantage of learning data science in an educational institituion is so you can better understand what is going on under the hood
     + Once we get to the statistical analysis portion, try to make sure you also understand the statistics well
@@ -126,13 +128,12 @@ Focus on the "soup to nuts" approach to problem solving
     + Reproducibility
     + Effective visualization
 - Examples
-    + [bikeshare](http://cs109hubway.github.io/classp/), [AirBnB](http://hamelsmu.github.io/AirbnbScrape/)
+    + [Stop and frink](https://samuel-shlee.com/econ122_sqf/), [bikeshare](http://cs109hubway.github.io/classp/)
     
 ## Using R for data science
 
 - Many data science teams use multiple languages, R and Python being common
-- We will use R for this course
-- Hadley Wickham: best to master one tool at a time.
+- We will use R for this course -- R is more specialized for statistics and economics compared to python
 
 ## Using R Markdown for data science
 
