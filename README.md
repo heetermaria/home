@@ -31,7 +31,7 @@ Textbook 2: [An Introduction to Statistical Learning](https://link.springer.com/
 **Monday** (intro, GitHub, test assignment) 
 
 -   before class:
-    - Try to set up R, RStudio, Git, GitHub account (See [GitHub reference quick guide](https://github.com/econ122-f21/github-classroom-for-stduents) and See [GitHub reference full guide](https://happygitwithr.com/index.html) 
+    - Try to set up R, RStudio, Git, GitHub account (See [GitHub reference quick guide](https://github.com/econ122-f21/github-classroom-for-stduents) and See [GitHub reference full guide](https://happygitwithr.com/index.html))
 -   in class: 
     -   day 1 slides: [.Rmd](docs/day1_IntroSlides.Rmd) [.html](https://econ122-f21.github.io/home/day1_IntroSlides.html)
     -   [test assignment](https://classroom.github.com/a/mA9w-EL5)
