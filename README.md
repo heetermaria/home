@@ -3,6 +3,8 @@ Course schedule for ECON 122 (F21)
 
 Michael Gelman (<mgelman@cmc.edu>), Claremont McKenna College
 
+Zoom link for remote viewing: https://cmc-its.zoom.us/j/3494522481
+
 Office hours:
 
 - In person: Mo/We 12:30 PM outside RN12 
