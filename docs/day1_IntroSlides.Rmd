@@ -128,7 +128,7 @@ Focus on the "soup to nuts" approach to problem solving
     + Reproducibility
     + Effective visualization
 - Examples
-    + [Stop and frink](https://samuel-shlee.com/econ122_sqf/), [bikeshare](http://cs109hubway.github.io/classp/)
+    + [Stop and frisk](https://samuel-shlee.com/econ122_sqf/), [bikeshare](http://cs109hubway.github.io/classp/)
     
 ## Using R for data science
 
