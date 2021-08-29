@@ -21,7 +21,7 @@ library(knitr)
 
 ## Course overview
 
-- See the [Syllabus](https://github.com/econ122-f19/home/blob/master/ECON122_F2019_DataScience_StatisticalLearning.pdf) for complete breakdown
+- See the [Syllabus](https://github.com/econ122-f21/home/blob/main/ECON122_F2021_DataScience_StatisticalLearning.pdf) for complete breakdown
 
 - Typical class:
     + Short lecture on the concept we will focus on
