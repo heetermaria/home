@@ -14,7 +14,7 @@ loans <- read.csv("https://raw.githubusercontent.com/mgelman/data/master/CreditD
 table(loans$Good.Loan)
 ```
 
-Here you show commands that use the `test-assignment` version of the data, but you don't actually evalate (run) the commands: 
+Here you show commands that use the `test-assignment` version of the data, but you don't actually evaluate (run) the commands: 
 ```{r day1creditdata, eval=FALSE}
 loans <- read.csv("https://raw.githubusercontent.com/mgelman/data/master/day1CreditData.csv")
 table(loans$Good.Loan)
