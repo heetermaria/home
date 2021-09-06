@@ -9,7 +9,7 @@ output: github_document
 knitr::opts_chunk$set(collapse=TRUE, prompt=TRUE, eval=TRUE, message=F, include=T,comment=NULL)
 ```
 
-## Analyzing COVID-19 data. 
+## Analyzing COVID-19 data 
 Data for this section was downloaded from  [The New York Times](https://github.com/nytimes/covid-19-data/tree/master/rolling-averages) COVID-19 case data.
 
 The following chunk imports seven day rolling averages of COVID-19 case counts per 100k residents. The important variables for this analysis are `region` which represents each US State and `cases_avg_per_100k` which hold the case data.
