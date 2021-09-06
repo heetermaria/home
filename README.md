@@ -82,7 +82,7 @@ Textbook 2: [An Introduction to Statistical Learning](https://link.springer.com/
     -   read Grolemund/Wickham [sections 3.1 - 3.5](http://r4ds.had.co.nz/data-visualisation.html)    
 -   in class: 
     -   discuss group projects
-    -   day 4 slides: [.Rmd](docs/day4_ggplotSlides.Rmd) [.html](https://econ122-f19.github.io/home/day4_ggplotSlides.html)
+    -   day 4 slides: [.Rmd](docs/day4_ggplotSlides.Rmd) [.html](https://econ122-f21.github.io/home/day4_ggplotSlides.html)
     -   day 4 activity: [.Rmd](activities/day4_ggplotActivity.Rmd) [.md](activities/day4_ggplotActivity.md)
         -  solutions: [.Rmd](activities/solutions/day4_ggplotActivity_solution.Rmd) [.md](activities/solutions/day4_ggplotActivity_solution.md)
 
@@ -94,7 +94,7 @@ Textbook 2: [An Introduction to Statistical Learning](https://link.springer.com/
     -   quick read MDSR sections 11.1-11.3 in chapter 11 to get a "big picture" idea of some of the interactive graphing options in R.
     -   Start on PS 2 
 -   in class: 
-    -   day 5 slides: [.Rmd](docs/day5_moreggplotsSlides.Rmd) [.html](https://econ122-f19.github.io/home/day5_moreggplotsSlides.html)
+    -   day 5 slides: [.Rmd](docs/day5_moreggplotsSlides.Rmd) [.html](https://econ122-f21.github.io/home/day5_moreggplotsSlides.html)
     -   day 5 interactive graphics slides: [.Rmd](docs/day5_IntroInteractive.Rmd) 
     -   day 5 activity: [.Rmd](activities/day5_ggplotActivity_2.Rmd) [.md](activities/day5_ggplotActivity_2.md)
         -  solutions: [.Rmd](activities/solutions/day5_ggplotActivity_2_solution.Rmd) [.md](activities/solutions/day5_ggplotActivity_2_solution.md)
