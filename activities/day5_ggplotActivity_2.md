@@ -3,7 +3,7 @@ More `ggplot2`
 ECON 122
 Day 5
 
-## Analyzing COVID-19 data.
+## Analyzing COVID-19 data
 
 Data for this section was downloaded from [The New York
 Times](https://github.com/nytimes/covid-19-data/tree/master/rolling-averages)
