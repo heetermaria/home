@@ -27,7 +27,7 @@ Textbook 2: [An Introduction to Statistical Learning](https://link.springer.com/
     - Solutions [.Rmd](PS/test-assignment-solution.Rmd) [.md](PS/test-assignment-solution.md)
 - [Problem Set 1](https://classroom.github.com/a/9YHYcsvA) (due **09/13**)
     - Solutions [.Rmd](PS/PS1-solution.Rmd) [.md](PS/PS1-solution.md)
-- [Problem Set 2]() (due **09/22**)
+- [Problem Set 2](https://classroom.github.com/a/TB5iee5Y) (due **09/22**)
     - Solutions [.Rmd](PS/PS2-solution.Rmd) [.md](PS/PS2-solution.md)
 - [Team Project 1]() (due **09/27**)    
 
@@ -73,6 +73,7 @@ Textbook 2: [An Introduction to Statistical Learning](https://link.springer.com/
         -  solutions: [.Rmd](activities/solutions/day3_RObjectsActivity_Solution.Rmd) [.md](activities/solutions/day3_RObjectsActivity_Solution.md)
 
 ------------------------------------------------------------------------
+
 ### Week 3 (09/13)
 
 **Monday** (`ggplot2` graphics)
@@ -98,4 +99,27 @@ Textbook 2: [An Introduction to Statistical Learning](https://link.springer.com/
     -   day 5 interactive graphics slides: [.Rmd](docs/day5_IntroInteractive.Rmd) 
     -   day 5 activity: [.Rmd](activities/day5_ggplotActivity_2.Rmd) [.md](activities/day5_ggplotActivity_2.md)
         -  solutions: [.Rmd](activities/solutions/day5_ggplotActivity_2_solution.Rmd) [.md](activities/solutions/day5_ggplotActivity_2_solution.md)
+
+------------------------------------------------------------------------
+
+### Week 4 (09/20)
+
+**Monday** (Introduction to `dplyr`)
+
+-   before class:
+    -   read MDSR sections 4.1 and 4.2
+-   in class: basic data wrangling with `dplyr`
+    -   day 6 slides: [.Rmd](docs/day6_DataWrangling1Slides.Rmd) [.html](https://econ122-f19.github.io/home/day7_DataWrangling1Slides.html)
+    -   day 6 activity: [.Rmd](activities/day6_DataWrangling1Activity.Rmd) [.md](activities/day7_DataWrangling1Activity.md)
+        -  solutions: [.Rmd](activities/solutions/day6_DataWrangling1Activity_Solution.Rmd) [.md](activities/solutions/day6_DataWrangling1Activity_Solution.md)
+        
+
+**Wednesday** (Work on Team Project 1)
+
+-   before class:
+    -   Make sure you have your Team Project 1 partners
+-   in class: 
+    -   Work with partners on Team Project 1
+    -   Ask any questions related to material up to this point
+
 
