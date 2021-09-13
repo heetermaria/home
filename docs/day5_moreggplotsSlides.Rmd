@@ -1,5 +1,5 @@
 ---
-title: "`ggplot` maps and colors" 
+title: "`ggplot` bar graphis, maps, and colors" 
 author: "ECON 122"
 date: "Day 5"
 output: 
@@ -22,9 +22,22 @@ if (length(install.me) >= 1) install.packages(install.me, repos = "http://cran.u
 lapply(mypacks, library, character.only=TRUE)  # load all packages
 ```
 
+
+
+## Bar graphs {.build}
+
+```{r, echo=FALSE}
+survey <- read.csv("https://raw.githubusercontent.com/mgelman/data/master/Survey.csv")
+```
+How does political comfort level (Q9) vary by religious group (Q8)?
+```{r, fig.height=3.5, fig.width=8}
+levels(survey$Question.8) <- c("not religious","religious, active", "religious, not active")
+ggplot(survey, aes(x=Question.8, fill=Question.9)) + geom_bar(position="fill")
+```
+
 ## `geom_bar` from summarized data {.build}
 
-- Last time we plotted survey response data using `geom_bar`
+- The last example plotted survey response data using `geom_bar`
     - each row represented `one` response
     - `ggplot` automatically summarized them for us
 - What if our data is already summarized? 
