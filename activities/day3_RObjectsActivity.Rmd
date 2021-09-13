@@ -86,5 +86,3 @@ MeanSD(c(1,2,3,4,NA))
 MeanSD(c(1,2,3,4,NA), na.rm=TRUE)
 ```
 - Change the function above to also include the median in it's statistical summary output.
-
-.
