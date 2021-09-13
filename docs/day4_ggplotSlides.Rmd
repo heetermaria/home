@@ -115,6 +115,7 @@ ggplot(data=survey, aes(x=Question.15)) + geom_histogram()
 ```{r, fig.height=3.5}
 ggplot(data=survey, aes(x=Question.15)) + geom_histogram() + facet_wrap(~Question.16)
 ```
+
 - Note: need `~` before the variable for `facet_wrap()`
 
 ## Another option  {.build}
