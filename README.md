@@ -114,7 +114,7 @@ Textbook 2: [An Introduction to Statistical Learning](https://link.springer.com/
     -   read MDSR sections 4.1 and 4.2
 -   in class: basic data wrangling with `dplyr`
     -   day 6 slides: [.Rmd](docs/day6_DataWrangling1Slides.Rmd) [.html](https://econ122-f21.github.io/home/day6_DataWrangling1Slides.html)
-    -   day 6 activity: [.Rmd](activities/day6_DataWrangling1Activity.Rmd) [.md](activities/day7_DataWrangling1Activity.md)
+    -   day 6 activity: [.Rmd](activities/day6_DataWrangling1Activity.Rmd) [.md](activities/day6_DataWrangling1Activity.md)
         -  solutions: [.Rmd](activities/solutions/day6_DataWrangling1Activity_Solution.Rmd) [.md](activities/solutions/day6_DataWrangling1Activity_Solution.md)
         
 
