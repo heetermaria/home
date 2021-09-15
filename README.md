@@ -33,7 +33,7 @@ Textbook 2: [An Introduction to Statistical Learning](https://link.springer.com/
     - Solutions [.Rmd](PS/PS1-solution.Rmd) [.md](PS/PS1-solution.md)
 - [Problem Set 2](https://classroom.github.com/a/TB5iee5Y) (due **09/22**)
     - Solutions [.Rmd](PS/PS2-solution.Rmd) [.md](PS/PS2-solution.md)
-- [Team Project 1]() (due **09/27**)    
+- [Team Project 1](https://classroom.github.com/g/tgLAGm-e) (due **09/27**)    
 
 ------------------------------------------------------------------------
 
