@@ -7,7 +7,7 @@ Zoom link for remote viewing: https://cmc-its.zoom.us/j/3494522481
 
 Office hours:
 
-- In person: Mo/We 12:30 PM outside RN12 
+- In person: Mo/We 12:25 PM outside RN12 (or come inside and let me know you want to meet)
 - Virtual: Sign up [here](https://calendly.com/michael-gelman) and use [this](https://cmc-its.zoom.us/j/3494522481) zoom link
 
 Tutor sessions (BC 22):
