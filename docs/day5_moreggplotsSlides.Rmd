@@ -1,5 +1,5 @@
 ---
-title: "`ggplot` bar graphis, maps, and colors" 
+title: "`ggplot` bar graphs, maps, and colors" 
 author: "ECON 122"
 date: "Day 5"
 output: 
