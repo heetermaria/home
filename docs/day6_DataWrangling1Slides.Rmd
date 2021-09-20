@@ -38,10 +38,10 @@ lapply(mypacks, library, character.only=TRUE)  # load all packages
     + everything you can do with `dplyr` can be done without it (but maybe not as nicely/easily)
 - There are 5 key *verbs* (actions):
     + `filter()`: pick observations (rows) of interest (subset)
-    + `arrange()`: sort obervations
     + `select()`: pick variables (columns)
     + `mutate()`: modify existing variables or create new variables
     + `summarize()`: collapse many values down into a single summary 
+    + `arrange()`: sort obervations
 - `group_by()`: changes the scope, or unit of analysis, from individual cases to aggregated groups
     - use with either `summarize` or `mutate`
 
