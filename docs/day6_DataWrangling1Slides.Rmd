@@ -25,7 +25,7 @@ lapply(mypacks, library, character.only=TRUE)  # load all packages
 
 ## Data Wrangling {.build}
 
-- Data manipulation is an extremely important data science skill
+- Data wrangling is an extremely important data science skill
 - methods for *filtering*, *transforming*,  *restructuring* and *combining* datasets should be 
     + readable
     + reproducible
@@ -238,7 +238,7 @@ loans2 %>% group_by(Good.Loan, pred.Def) %>%
 
 ## `group_by` {.build .smaller} 
 
-- What if we want false positive and false negative rate?
+- What if we want false positive (default) and false negative rate? 
   - false positive rate: % of good loans that were predicted to default
   - false negative rate: % of bad loans that were predicted to not default
 - Instead of dividing by overall `n` we need to divide by `n` within `Good.Loan`
