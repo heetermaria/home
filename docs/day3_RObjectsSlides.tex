@@ -1,0 +1,1142 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  ignorenonframetext,
+]{beamer}
+\usepackage{pgfpages}
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{caption label separator}{: }
+\setbeamercolor{caption name}{fg=normal text.fg}
+\beamertemplatenavigationsymbolsempty
+% Prevent slide breaks in the middle of a paragraph
+\widowpenalties 1 10000
+\raggedbottom
+\setbeamertemplate{part page}{
+  \centering
+  \begin{beamercolorbox}[sep=16pt,center]{part title}
+    \usebeamerfont{part title}\insertpart\par
+  \end{beamercolorbox}
+}
+\setbeamertemplate{section page}{
+  \centering
+  \begin{beamercolorbox}[sep=12pt,center]{part title}
+    \usebeamerfont{section title}\insertsection\par
+  \end{beamercolorbox}
+}
+\setbeamertemplate{subsection page}{
+  \centering
+  \begin{beamercolorbox}[sep=8pt,center]{part title}
+    \usebeamerfont{subsection title}\insertsubsection\par
+  \end{beamercolorbox}
+}
+\AtBeginPart{
+  \frame{\partpage}
+}
+\AtBeginSection{
+  \ifbibliography
+  \else
+    \frame{\sectionpage}
+  \fi
+}
+\AtBeginSubsection{
+  \frame{\subsectionpage}
+}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={R: nuts and bolts},
+  pdfauthor={ECON 122},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\newif\ifbibliography
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifluatex
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+
+\title{R: nuts and bolts}
+\author{ECON 122}
+\date{Day 3}
+
+\begin{document}
+\frame{\titlepage}
+
+\begin{frame}[fragile]{Where do things live? \textbar{} \textbf{Working
+Directory}}
+\protect\hypertarget{where-do-things-live-working-directory}{}
+\begin{itemize}[<+->]
+\tightlist
+\item
+  Directory where R first looks for files.
+
+  \begin{itemize}[<+->]
+  \tightlist
+  \item
+    If you run \texttt{read.csv("mydata.csv")} then \texttt{mydata.csv}
+    should be in your working directory
+  \end{itemize}
+\item
+  Check current location (your location will be different):
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\SpecialCharTok{\textgreater{}} \FunctionTok{getwd}\NormalTok{()}
+\NormalTok{[}\DecValTok{1}\NormalTok{] }\StringTok{"/Users/mariaheeter/Documents/GitHub/home/docs"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}[<+->]
+\tightlist
+\item
+  \textbf{R Markdown:} When you \texttt{knit} a .Rmd file, the working
+  directory for the compilation of the document is always the
+  \textbf{directory where the .Rmd file is located!}
+
+  \begin{itemize}[<+->]
+  \tightlist
+  \item
+    This may be different from the location of your current Rstudio
+    session.
+  \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Where do things live? \textbar{}
+\textbf{Workspace}}
+\protect\hypertarget{where-do-things-live-workspace}{}
+\begin{itemize}[<+->]
+\tightlist
+\item
+  This is the ``environment'' where R objects live.
+
+  \begin{itemize}[<+->]
+  \tightlist
+  \item
+    See the \textbf{Environment} tab in Rstudio
+  \end{itemize}
+\item
+  Check the contents of my (or your) environment
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\SpecialCharTok{\textgreater{}} \FunctionTok{ls}\NormalTok{()}
+\FunctionTok{character}\NormalTok{(}\DecValTok{0}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+(If it says \texttt{character(0)} then your workspace is empty!)
+
+\begin{itemize}[<+->]
+\tightlist
+\item
+  \textbf{R Markdown:} When you \texttt{knit} a .Rmd file, a completely
+  \textbf{new and separate working space} is created.
+
+  \begin{itemize}[<+->]
+  \tightlist
+  \item
+    \textbf{why do you think this is the case?}
+  \item
+    R chunk may throw an error if you reference an object loaded in your
+    workspace but not via R chunk
+  \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Where do things live? \textbar{} \textbf{Rstudio
+Projects}}
+\protect\hypertarget{where-do-things-live-rstudio-projects}{}
+\begin{itemize}[<+->]
+\tightlist
+\item
+  Projects set your working directory to the folder it lives in
+
+  \begin{itemize}[<+->]
+  \tightlist
+  \item
+    easy way to set your working directory
+  \item
+    can save and reload your workspace (environment)
+  \end{itemize}
+\item
+  Projects can be connected to GitHub using Rstudio's GUI
+\item
+  \textbf{Highly recommend:} create a project for this class in the
+  folder you are using to store class work.
+
+  \begin{itemize}[<+->]
+  \tightlist
+  \item
+    see \href{http://r4ds.had.co.nz/workflow-projects.html}{Hadley's
+    page on projects}
+  \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Objects in R}
+\protect\hypertarget{objects-in-r}{}
+\begin{itemize}[<+->]
+\tightlist
+\item
+  Anything created or imported into R is called an \textbf{object}
+
+  \begin{itemize}[<+->]
+  \tightlist
+  \item
+    vectors, data frames, matrices, lists, functions, lm, \ldots{}
+  \end{itemize}
+\item
+  We usually store objects in the workspace using the assignment
+  \textbf{operator} \texttt{\textless{}-}
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\SpecialCharTok{\textgreater{}}\NormalTok{ x }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{8}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DecValTok{3}\NormalTok{)}
+\SpecialCharTok{\textgreater{}} \FunctionTok{ls}\NormalTok{()}
+\NormalTok{[}\DecValTok{1}\NormalTok{] }\StringTok{"x"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}[<+->]
+\tightlist
+\item
+  The \texttt{=} operator also does assignment, but it is mainly used
+  for argument specification inside a function.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\SpecialCharTok{\textgreater{}}\NormalTok{ y }\OtherTok{\textless{}{-}} \FunctionTok{rnorm}\NormalTok{(}\DecValTok{3}\NormalTok{, }\AttributeTok{mean=}\DecValTok{10}\NormalTok{, }\AttributeTok{sd=}\DecValTok{2}\NormalTok{)}
+\SpecialCharTok{\textgreater{}} \FunctionTok{ls}\NormalTok{()}
+\NormalTok{[}\DecValTok{1}\NormalTok{] }\StringTok{"x"} \StringTok{"y"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}[<+->]
+\tightlist
+\item
+  Please don't use \texttt{=} for variable assignment!!!
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Data structures and types \textbar{} Shape and computer
+storage}
+\protect\hypertarget{data-structures-and-types-shape-and-computer-storage}{}
+\end{frame}
+
+\begin{frame}[fragile]{Data types \textbar{} Determines computer storage
+of info}
+\protect\hypertarget{data-types-determines-computer-storage-of-info}{}
+\begin{itemize}[<+->]
+\tightlist
+\item
+  Important data types
+
+  \begin{itemize}[<+->]
+  \tightlist
+  \item
+    Logical: TRUE and FALSE are the only values
+  \item
+    Numeric class: Integer and double
+  \item
+    Character: string ("") of text
+  \end{itemize}
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\SpecialCharTok{\textgreater{}} \FunctionTok{typeof}\NormalTok{(x)  }\CommentTok{\# type of storage mode }
+\NormalTok{[}\DecValTok{1}\NormalTok{] }\StringTok{"double"}
+\SpecialCharTok{\textgreater{}} \FunctionTok{class}\NormalTok{(x)   }\CommentTok{\# object class is numeric}
+\NormalTok{[}\DecValTok{1}\NormalTok{] }\StringTok{"numeric"}
+\SpecialCharTok{\textgreater{}} \FunctionTok{typeof}\NormalTok{(}\StringTok{"abc"}\NormalTok{)}
+\NormalTok{[}\DecValTok{1}\NormalTok{] }\StringTok{"character"}
+\SpecialCharTok{\textgreater{}}\NormalTok{ x }\SpecialCharTok{==} \DecValTok{1}
+\NormalTok{[}\DecValTok{1}\NormalTok{] }\ConstantTok{FALSE} \ConstantTok{FALSE}  \ConstantTok{TRUE} \ConstantTok{FALSE}
+\SpecialCharTok{\textgreater{}} \FunctionTok{typeof}\NormalTok{(x }\SpecialCharTok{==} \DecValTok{1}\NormalTok{)}
+\NormalTok{[}\DecValTok{1}\NormalTok{] }\StringTok{"logical"}
+\end{Highlighting}
+\end{Shaded}
+\end{frame}
+
+\begin{frame}[fragile]{Vectors \textbar{} Shape of an object}
+\protect\hypertarget{vectors-shape-of-an-object}{}
+\begin{itemize}[<+->]
+\tightlist
+\item
+  R uses two types of vectors to store info
+
+  \begin{itemize}[<+->]
+  \tightlist
+  \item
+    \textbf{atomic vectors}: all entries have the same data type
+  \item
+    \textbf{lists}: entries can contain other objects that can differ in
+    data type
+  \end{itemize}
+\item
+  All vectors have a length
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\SpecialCharTok{\textgreater{}}\NormalTok{ x}
+\NormalTok{[}\DecValTok{1}\NormalTok{] }\DecValTok{8} \DecValTok{2} \DecValTok{1} \DecValTok{3}
+\SpecialCharTok{\textgreater{}} \FunctionTok{length}\NormalTok{(x)}
+\NormalTok{[}\DecValTok{1}\NormalTok{] }\DecValTok{4}
+\SpecialCharTok{\textgreater{}}\NormalTok{ x.list}\OtherTok{\textless{}{-}} \FunctionTok{list}\NormalTok{(x,}\DecValTok{1}\NormalTok{,}\StringTok{"a"}\NormalTok{)}
+\SpecialCharTok{\textgreater{}} \FunctionTok{length}\NormalTok{(x.list)}
+\NormalTok{[}\DecValTok{1}\NormalTok{] }\DecValTok{3}
+\end{Highlighting}
+\end{Shaded}
+\end{frame}
+
+\begin{frame}[fragile]{Atomic Vectors: Matrices}
+\protect\hypertarget{atomic-vectors-matrices}{}
+\begin{itemize}[<+->]
+\tightlist
+\item
+  You can add \textbf{attributes}, such as \textbf{dimension}, to
+  vectors
+\item
+  A \textbf{matrix} is a 2-dimensional vector containing entries of the
+  same type
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\SpecialCharTok{\textgreater{}}\NormalTok{ x}
+\NormalTok{[}\DecValTok{1}\NormalTok{] }\DecValTok{8} \DecValTok{2} \DecValTok{1} \DecValTok{3}
+\SpecialCharTok{\textgreater{}}\NormalTok{ x.mat }\OtherTok{\textless{}{-}} \FunctionTok{matrix}\NormalTok{(x, }\AttributeTok{nrow=}\DecValTok{2}\NormalTok{, }\AttributeTok{byrow=}\ConstantTok{TRUE}\NormalTok{)}
+\SpecialCharTok{\textgreater{}}\NormalTok{ x.mat}
+\NormalTok{     [,}\DecValTok{1}\NormalTok{] [,}\DecValTok{2}\NormalTok{]}
+\NormalTok{[}\DecValTok{1}\NormalTok{,]    }\DecValTok{8}    \DecValTok{2}
+\NormalTok{[}\DecValTok{2}\NormalTok{,]    }\DecValTok{1}    \DecValTok{3}
+\SpecialCharTok{\textgreater{}} \FunctionTok{class}\NormalTok{(x.mat)}
+\NormalTok{[}\DecValTok{1}\NormalTok{] }\StringTok{"matrix"} \StringTok{"array"} 
+\SpecialCharTok{\textgreater{}} \FunctionTok{str}\NormalTok{(x.mat)}
+\NormalTok{ num [}\DecValTok{1}\SpecialCharTok{:}\DecValTok{2}\NormalTok{, }\DecValTok{1}\SpecialCharTok{:}\DecValTok{2}\NormalTok{] }\DecValTok{8} \DecValTok{1} \DecValTok{2} \DecValTok{3}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}[<+->]
+\tightlist
+\item
+  Note: \texttt{str} is a handy way of dispalying the structure of
+  objects
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Atomic Vectors: Matrices}
+\protect\hypertarget{atomic-vectors-matrices-1}{}
+\begin{itemize}[<+->]
+\tightlist
+\item
+  or you can bind vectors of the same length to create columns or rows:
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\SpecialCharTok{\textgreater{}}\NormalTok{ x.mat2 }\OtherTok{\textless{}{-}} \FunctionTok{cbind}\NormalTok{(x,}\DecValTok{2}\SpecialCharTok{*}\NormalTok{x)}
+\SpecialCharTok{\textgreater{}}\NormalTok{ x.mat2}
+\NormalTok{     x   }
+\NormalTok{[}\DecValTok{1}\NormalTok{,] }\DecValTok{8} \DecValTok{16}
+\NormalTok{[}\DecValTok{2}\NormalTok{,] }\DecValTok{2}  \DecValTok{4}
+\NormalTok{[}\DecValTok{3}\NormalTok{,] }\DecValTok{1}  \DecValTok{2}
+\NormalTok{[}\DecValTok{4}\NormalTok{,] }\DecValTok{3}  \DecValTok{6}
+\end{Highlighting}
+\end{Shaded}
+\end{frame}
+
+\begin{frame}[fragile]{Lists: Data frames}
+\protect\hypertarget{lists-data-frames}{}
+\begin{itemize}[<+->]
+\tightlist
+\item
+  A \textbf{data frame} is a list of atomic vectors of the same length,
+  but not necessarily the same data type
+\item
+  the \texttt{loans} data frame has columns that are \texttt{integer}
+  and \texttt{factor} types
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\SpecialCharTok{\textgreater{}}\NormalTok{ loans }\OtherTok{\textless{}{-}} \FunctionTok{read.csv}\NormalTok{(}\StringTok{"https://raw.githubusercontent.com/mgelman/data/master/CreditData.csv"}\NormalTok{)}
+\SpecialCharTok{\textgreater{}} \FunctionTok{class}\NormalTok{(loans)}
+\NormalTok{[}\DecValTok{1}\NormalTok{] }\StringTok{"data.frame"}
+\SpecialCharTok{\textgreater{}} \FunctionTok{typeof}\NormalTok{(loans)}
+\NormalTok{[}\DecValTok{1}\NormalTok{] }\StringTok{"list"}
+\SpecialCharTok{\textgreater{}} \FunctionTok{str}\NormalTok{(loans)}
+\StringTok{\textquotesingle{}data.frame\textquotesingle{}}\SpecialCharTok{:}   \DecValTok{1000}\NormalTok{ obs. of  }\DecValTok{21}\NormalTok{ variables}\SpecialCharTok{:}
+ \ErrorTok{$}\NormalTok{ Status.of.existing.checking.account                     }\SpecialCharTok{:}\NormalTok{ chr  }\StringTok{"... \textless{} 0 DM"} \StringTok{"0 \textless{}= ... \textless{} 200 DM"} \StringTok{"no checking account"} \StringTok{"... \textless{} 0 DM"}\NormalTok{ ...}
+ \SpecialCharTok{$}\NormalTok{ Duration.in.month                                       }\SpecialCharTok{:}\NormalTok{ int  }\DecValTok{6} \DecValTok{48} \DecValTok{12} \DecValTok{42} \DecValTok{24} \DecValTok{36} \DecValTok{24} \DecValTok{36} \DecValTok{12} \DecValTok{30}\NormalTok{ ...}
+ \SpecialCharTok{$}\NormalTok{ Credit.history                                          }\SpecialCharTok{:}\NormalTok{ chr  }\StringTok{"critical account/other credits existing (not at this bank)"} \StringTok{"existing credits paid back duly till now"} \StringTok{"critical account/other credits existing (not at this bank)"} \StringTok{"existing credits paid back duly till now"}\NormalTok{ ...}
+ \SpecialCharTok{$}\NormalTok{ Purpose                                                 }\SpecialCharTok{:}\NormalTok{ chr  }\StringTok{"radio/television"} \StringTok{"radio/television"} \StringTok{"education"} \StringTok{"furniture/equipment"}\NormalTok{ ...}
+ \SpecialCharTok{$}\NormalTok{ Credit.amount                                           }\SpecialCharTok{:}\NormalTok{ int  }\DecValTok{1169} \DecValTok{5951} \DecValTok{2096} \DecValTok{7882} \DecValTok{4870} \DecValTok{9055} \DecValTok{2835} \DecValTok{6948} \DecValTok{3059} \DecValTok{5234}\NormalTok{ ...}
+ \SpecialCharTok{$}\NormalTok{ Savings.account.bonds                                   }\SpecialCharTok{:}\NormalTok{ chr  }\StringTok{"unknown/ no savings account"} \StringTok{"... \textless{} 100 DM"} \StringTok{"... \textless{} 100 DM"} \StringTok{"... \textless{} 100 DM"}\NormalTok{ ...}
+ \SpecialCharTok{$}\NormalTok{ Present.employment.since                                }\SpecialCharTok{:}\NormalTok{ chr  }\StringTok{".. \textgreater{}= 7 years"} \StringTok{"1 \textless{}= ... \textless{} 4 years"} \StringTok{"4 \textless{}= ... \textless{} 7 years"} \StringTok{"4 \textless{}= ... \textless{} 7 years"}\NormalTok{ ...}
+ \SpecialCharTok{$}\NormalTok{ Installment.rate.in.percentage.of.disposable.income     }\SpecialCharTok{:}\NormalTok{ int  }\DecValTok{4} \DecValTok{2} \DecValTok{2} \DecValTok{2} \DecValTok{3} \DecValTok{2} \DecValTok{3} \DecValTok{2} \DecValTok{2} \DecValTok{4}\NormalTok{ ...}
+ \SpecialCharTok{$}\NormalTok{ Personal.status.and.sex                                 }\SpecialCharTok{:}\NormalTok{ chr  }\StringTok{"male : single"} \StringTok{"female : divorced/separated/married"} \StringTok{"male : single"} \StringTok{"male : single"}\NormalTok{ ...}
+ \SpecialCharTok{$}\NormalTok{ Other.debtors.guarantors                                }\SpecialCharTok{:}\NormalTok{ chr  }\StringTok{"none"} \StringTok{"none"} \StringTok{"none"} \StringTok{"guarantor"}\NormalTok{ ...}
+ \SpecialCharTok{$}\NormalTok{ Present.residence.since                                 }\SpecialCharTok{:}\NormalTok{ int  }\DecValTok{4} \DecValTok{2} \DecValTok{3} \DecValTok{4} \DecValTok{4} \DecValTok{4} \DecValTok{4} \DecValTok{2} \DecValTok{4} \DecValTok{2}\NormalTok{ ...}
+ \SpecialCharTok{$}\NormalTok{ Property                                                }\SpecialCharTok{:}\NormalTok{ chr  }\StringTok{"real estate"} \StringTok{"real estate"} \StringTok{"real estate"} \StringTok{"if not A121 : building society savings agreement/life insurance"}\NormalTok{ ...}
+ \SpecialCharTok{$}\NormalTok{ Age.in.years                                            }\SpecialCharTok{:}\NormalTok{ int  }\DecValTok{67} \DecValTok{22} \DecValTok{49} \DecValTok{45} \DecValTok{53} \DecValTok{35} \DecValTok{53} \DecValTok{35} \DecValTok{61} \DecValTok{28}\NormalTok{ ...}
+ \SpecialCharTok{$}\NormalTok{ Other.installment.plans                                 }\SpecialCharTok{:}\NormalTok{ chr  }\StringTok{"none"} \StringTok{"none"} \StringTok{"none"} \StringTok{"none"}\NormalTok{ ...}
+ \SpecialCharTok{$}\NormalTok{ Housing                                                 }\SpecialCharTok{:}\NormalTok{ chr  }\StringTok{"own"} \StringTok{"own"} \StringTok{"own"} \StringTok{"for free"}\NormalTok{ ...}
+ \SpecialCharTok{$}\NormalTok{ Number.of.existing.credits.at.this.bank                 }\SpecialCharTok{:}\NormalTok{ int  }\DecValTok{2} \DecValTok{1} \DecValTok{1} \DecValTok{1} \DecValTok{2} \DecValTok{1} \DecValTok{1} \DecValTok{1} \DecValTok{1} \DecValTok{2}\NormalTok{ ...}
+ \SpecialCharTok{$}\NormalTok{ Job                                                     }\SpecialCharTok{:}\NormalTok{ chr  }\StringTok{"skilled employee / official"} \StringTok{"skilled employee / official"} \StringTok{"unskilled {-} resident"} \StringTok{"skilled employee / official"}\NormalTok{ ...}
+ \SpecialCharTok{$}\NormalTok{ Number.of.people.being.liable.to.provide.maintenance.for}\SpecialCharTok{:}\NormalTok{ int  }\DecValTok{1} \DecValTok{1} \DecValTok{2} \DecValTok{2} \DecValTok{2} \DecValTok{2} \DecValTok{1} \DecValTok{1} \DecValTok{1} \DecValTok{1}\NormalTok{ ...}
+ \SpecialCharTok{$}\NormalTok{ Telephone                                               }\SpecialCharTok{:}\NormalTok{ chr  }\StringTok{"yes, registered under the customers name"} \StringTok{"none"} \StringTok{"none"} \StringTok{"none"}\NormalTok{ ...}
+ \SpecialCharTok{$}\NormalTok{ foreign.worker                                          }\SpecialCharTok{:}\NormalTok{ chr  }\StringTok{"yes"} \StringTok{"yes"} \StringTok{"yes"} \StringTok{"yes"}\NormalTok{ ...}
+ \SpecialCharTok{$}\NormalTok{ Good.Loan                                               }\SpecialCharTok{:}\NormalTok{ chr  }\StringTok{"GoodLoan"} \StringTok{"BadLoan"} \StringTok{"GoodLoan"} \StringTok{"GoodLoan"}\NormalTok{ ...}
+\end{Highlighting}
+\end{Shaded}
+\end{frame}
+
+\begin{frame}[fragile]{Lists: Data frames}
+\protect\hypertarget{lists-data-frames-1}{}
+\begin{itemize}[<+->]
+\tightlist
+\item
+  data frame attributes include column \texttt{names} and
+  \texttt{row.names}
+\item
+  you can create a data frame with the \texttt{data.frame} command
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\SpecialCharTok{\textgreater{}}\NormalTok{ x.df }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}\AttributeTok{x=}\NormalTok{x,}\AttributeTok{double.x=}\NormalTok{x}\SpecialCharTok{*}\DecValTok{2}\NormalTok{)}
+\SpecialCharTok{\textgreater{}}\NormalTok{ x.df}
+\NormalTok{  x double.x}
+\DecValTok{1} \DecValTok{8}       \DecValTok{16}
+\DecValTok{2} \DecValTok{2}        \DecValTok{4}
+\DecValTok{3} \DecValTok{1}        \DecValTok{2}
+\DecValTok{4} \DecValTok{3}        \DecValTok{6}
+\SpecialCharTok{\textgreater{}} \FunctionTok{attributes}\NormalTok{(x.df)  }\CommentTok{\# note: attributes returns a list!}
+\SpecialCharTok{$}\NormalTok{names}
+\NormalTok{[}\DecValTok{1}\NormalTok{] }\StringTok{"x"}        \StringTok{"double.x"}
+
+\SpecialCharTok{$}\NormalTok{class}
+\NormalTok{[}\DecValTok{1}\NormalTok{] }\StringTok{"data.frame"}
+
+\SpecialCharTok{$}\NormalTok{row.names}
+\NormalTok{[}\DecValTok{1}\NormalTok{] }\DecValTok{1} \DecValTok{2} \DecValTok{3} \DecValTok{4}
+\end{Highlighting}
+\end{Shaded}
+\end{frame}
+
+\begin{frame}[fragile]{Data types: factors}
+\protect\hypertarget{data-types-factors}{}
+\begin{itemize}[<+->]
+\tightlist
+\item
+  Factors are a data type stored as integers
+
+  \begin{itemize}[<+->]
+  \tightlist
+  \item
+    The attribute \texttt{levels} is a character vector of possible
+    values
+  \item
+    Values are stored as the integers (1=first \texttt{level}, 2=second
+    \texttt{level}, etc)
+  \end{itemize}
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\SpecialCharTok{\textgreater{}} \FunctionTok{class}\NormalTok{(loans}\SpecialCharTok{$}\NormalTok{Good.Loan)}
+\NormalTok{[}\DecValTok{1}\NormalTok{] }\StringTok{"character"}
+\SpecialCharTok{\textgreater{}} \FunctionTok{typeof}\NormalTok{(loans}\SpecialCharTok{$}\NormalTok{Good.Loan)}
+\NormalTok{[}\DecValTok{1}\NormalTok{] }\StringTok{"character"}
+\SpecialCharTok{\textgreater{}} \FunctionTok{levels}\NormalTok{(loans}\SpecialCharTok{$}\NormalTok{Good.Loan)}
+\ConstantTok{NULL}
+\SpecialCharTok{\textgreater{}} \FunctionTok{str}\NormalTok{(loans}\SpecialCharTok{$}\NormalTok{Good.Loan)}
+\NormalTok{ chr [}\DecValTok{1}\SpecialCharTok{:}\DecValTok{1000}\NormalTok{] }\StringTok{"GoodLoan"} \StringTok{"BadLoan"} \StringTok{"GoodLoan"} \StringTok{"GoodLoan"} \StringTok{"BadLoan"}\NormalTok{ ...}
+\SpecialCharTok{\textgreater{}} \FunctionTok{head}\NormalTok{(loans}\SpecialCharTok{$}\NormalTok{Good.Loan)}
+\NormalTok{[}\DecValTok{1}\NormalTok{] }\StringTok{"GoodLoan"} \StringTok{"BadLoan"}  \StringTok{"GoodLoan"} \StringTok{"GoodLoan"} \StringTok{"BadLoan"}  \StringTok{"GoodLoan"}
+\end{Highlighting}
+\end{Shaded}
+\end{frame}
+
+\begin{frame}[fragile]{Object Oriented Programming}
+\protect\hypertarget{object-oriented-programming}{}
+\begin{itemize}[<+->]
+\tightlist
+\item
+  In R, commands care about object class and type
+\item
+  Ex: For a factor, what type of \texttt{summary} would be helpful?
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\SpecialCharTok{\textgreater{}} \FunctionTok{summary}\NormalTok{(loans}\SpecialCharTok{$}\NormalTok{Good.Loan)}
+\NormalTok{   Length     Class      Mode }
+     \DecValTok{1000}\NormalTok{ character character }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}[<+->]
+\tightlist
+\item
+  What about for a numeric?
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\SpecialCharTok{\textgreater{}} \FunctionTok{summary}\NormalTok{(loans}\SpecialCharTok{$}\NormalTok{Duration.in.month)}
+\NormalTok{   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. }
+    \FloatTok{4.0}    \FloatTok{12.0}    \FloatTok{18.0}    \FloatTok{20.9}    \FloatTok{24.0}    \FloatTok{72.0} 
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}[<+->]
+\tightlist
+\item
+  In your \textbf{Console} window, type \texttt{?summary} then hit
+  \textbf{tab}.
+
+  \begin{itemize}[<+->]
+  \tightlist
+  \item
+    see \texttt{summary.default}, \texttt{summary.factor}, \ldots{}
+  \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Coercion}
+\protect\hypertarget{coercion}{}
+\begin{itemize}[<+->]
+\tightlist
+\item
+  Entries in atomic vectors must be the same data type
+\item
+  R will default to the most complex data type if more than one type is
+  given
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\SpecialCharTok{\textgreater{}}\NormalTok{ y }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\StringTok{"a"}\NormalTok{)}
+\SpecialCharTok{\textgreater{}}\NormalTok{ y}
+\NormalTok{[}\DecValTok{1}\NormalTok{] }\StringTok{"1"} \StringTok{"2"} \StringTok{"a"}
+\SpecialCharTok{\textgreater{}} \FunctionTok{typeof}\NormalTok{(y)}
+\NormalTok{[}\DecValTok{1}\NormalTok{] }\StringTok{"character"}
+\end{Highlighting}
+\end{Shaded}
+\end{frame}
+
+\begin{frame}[fragile]{Coercion}
+\protect\hypertarget{coercion-1}{}
+\begin{itemize}[<+->]
+\tightlist
+\item
+  Logical values coerced into 0 for \texttt{FALSE} and 1 for
+  \texttt{TRUE}
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\SpecialCharTok{\textgreater{}}\NormalTok{ z }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\ConstantTok{TRUE}\NormalTok{, }\ConstantTok{FALSE}\NormalTok{, }\ConstantTok{TRUE}\NormalTok{, }\DecValTok{7}\NormalTok{)}
+\SpecialCharTok{\textgreater{}}\NormalTok{ z   }\CommentTok{\# TRUE = 1, FALSE = 0}
+\NormalTok{[}\DecValTok{1}\NormalTok{] }\DecValTok{1} \DecValTok{0} \DecValTok{1} \DecValTok{7}
+\SpecialCharTok{\textgreater{}} \FunctionTok{typeof}\NormalTok{(z)}
+\NormalTok{[}\DecValTok{1}\NormalTok{] }\StringTok{"double"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}[<+->]
+\tightlist
+\item
+  Logical vectors are also coerced into numeric when applying math
+  functions
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\SpecialCharTok{\textgreater{}}\NormalTok{ x}
+\NormalTok{[}\DecValTok{1}\NormalTok{] }\DecValTok{8} \DecValTok{2} \DecValTok{1} \DecValTok{3}
+\SpecialCharTok{\textgreater{}}\NormalTok{ x }\SpecialCharTok{\textgreater{}=} \DecValTok{5}  \CommentTok{\# which entries \textgreater{}= 5?}
+\NormalTok{[}\DecValTok{1}\NormalTok{]  }\ConstantTok{TRUE} \ConstantTok{FALSE} \ConstantTok{FALSE} \ConstantTok{FALSE}
+\SpecialCharTok{\textgreater{}} \FunctionTok{sum}\NormalTok{(x }\SpecialCharTok{\textgreater{}=} \DecValTok{5}\NormalTok{)  }\CommentTok{\# how many \textgreater{}=5 ?}
+\NormalTok{[}\DecValTok{1}\NormalTok{] }\DecValTok{1}
+\SpecialCharTok{\textgreater{}} \FunctionTok{mean}\NormalTok{(x }\SpecialCharTok{\textgreater{}=} \DecValTok{5}\NormalTok{) }\CommentTok{\# proportion of entries \textgreater{}=5}
+\NormalTok{[}\DecValTok{1}\NormalTok{] }\FloatTok{0.25}
+\end{Highlighting}
+\end{Shaded}
+\end{frame}
+
+\begin{frame}[fragile]{Subsetting: Atomic Vector}
+\protect\hypertarget{subsetting-atomic-vector}{}
+\begin{itemize}[<+->]
+\tightlist
+\item
+  subset with \texttt{{[}{]}} by referencing index value (from 1 to
+  vector length):
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\SpecialCharTok{\textgreater{}}\NormalTok{ x}
+\NormalTok{[}\DecValTok{1}\NormalTok{] }\DecValTok{8} \DecValTok{2} \DecValTok{1} \DecValTok{3}
+\SpecialCharTok{\textgreater{}}\NormalTok{ x[}\FunctionTok{c}\NormalTok{(}\DecValTok{4}\NormalTok{,}\DecValTok{2}\NormalTok{)]  }\CommentTok{\# get 4th and 2nd entries}
+\NormalTok{[}\DecValTok{1}\NormalTok{] }\DecValTok{3} \DecValTok{2}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}[<+->]
+\tightlist
+\item
+  subset by omitting entries
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\SpecialCharTok{\textgreater{}}\NormalTok{ x[}\SpecialCharTok{{-}}\FunctionTok{c}\NormalTok{(}\DecValTok{4}\NormalTok{,}\DecValTok{2}\NormalTok{)]  }\CommentTok{\# omit 4th and 2nd entries}
+\NormalTok{[}\DecValTok{1}\NormalTok{] }\DecValTok{8} \DecValTok{1}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}[<+->]
+\tightlist
+\item
+  subset with a logical vector
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\SpecialCharTok{\textgreater{}}\NormalTok{ x[}\FunctionTok{c}\NormalTok{(}\ConstantTok{TRUE}\NormalTok{,}\ConstantTok{FALSE}\NormalTok{,}\ConstantTok{TRUE}\NormalTok{,}\ConstantTok{FALSE}\NormalTok{)]  }\CommentTok{\# get 1st and 3rd entries}
+\NormalTok{[}\DecValTok{1}\NormalTok{] }\DecValTok{8} \DecValTok{1}
+\end{Highlighting}
+\end{Shaded}
+\end{frame}
+
+\begin{frame}[fragile]{Subsetting: Matrices}
+\protect\hypertarget{subsetting-matrices}{}
+\begin{itemize}[<+->]
+\tightlist
+\item
+  access entries using subsetting \texttt{{[}row,column{]}}
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\SpecialCharTok{\textgreater{}}\NormalTok{ x.mat2}
+\NormalTok{     x   }
+\NormalTok{[}\DecValTok{1}\NormalTok{,] }\DecValTok{8} \DecValTok{16}
+\NormalTok{[}\DecValTok{2}\NormalTok{,] }\DecValTok{2}  \DecValTok{4}
+\NormalTok{[}\DecValTok{3}\NormalTok{,] }\DecValTok{1}  \DecValTok{2}
+\NormalTok{[}\DecValTok{4}\NormalTok{,] }\DecValTok{3}  \DecValTok{6}
+\SpecialCharTok{\textgreater{}}\NormalTok{ x.mat2[,}\DecValTok{1}\NormalTok{] }\CommentTok{\# first column}
+\NormalTok{[}\DecValTok{1}\NormalTok{] }\DecValTok{8} \DecValTok{2} \DecValTok{1} \DecValTok{3}
+\SpecialCharTok{\textgreater{}}\NormalTok{ x.mat2[}\DecValTok{1}\SpecialCharTok{:}\DecValTok{2}\NormalTok{,}\DecValTok{1}\NormalTok{] }\CommentTok{\# first 2 rows of first column}
+\NormalTok{[}\DecValTok{1}\NormalTok{] }\DecValTok{8} \DecValTok{2}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}[<+->]
+\tightlist
+\item
+  R doesn't always preserve class:
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\SpecialCharTok{\textgreater{}} \FunctionTok{class}\NormalTok{(x.mat2[}\DecValTok{1}\NormalTok{,])  }\CommentTok{\# one row (or col) is no longer a matrix (1D)}
+\NormalTok{[}\DecValTok{1}\NormalTok{] }\StringTok{"numeric"}
+\end{Highlighting}
+\end{Shaded}
+\end{frame}
+
+\begin{frame}[fragile]{Subsetting: Data frames}
+\protect\hypertarget{subsetting-data-frames}{}
+\begin{itemize}[<+->]
+\tightlist
+\item
+  you can access entries like a matrix:
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\SpecialCharTok{\textgreater{}}\NormalTok{ x.df}
+\NormalTok{  x double.x}
+\DecValTok{1} \DecValTok{8}       \DecValTok{16}
+\DecValTok{2} \DecValTok{2}        \DecValTok{4}
+\DecValTok{3} \DecValTok{1}        \DecValTok{2}
+\DecValTok{4} \DecValTok{3}        \DecValTok{6}
+\SpecialCharTok{\textgreater{}}\NormalTok{ x.df[,}\DecValTok{1}\NormalTok{]  }\CommentTok{\# first column, all rows}
+\NormalTok{[}\DecValTok{1}\NormalTok{] }\DecValTok{8} \DecValTok{2} \DecValTok{1} \DecValTok{3}
+\SpecialCharTok{\textgreater{}} \FunctionTok{class}\NormalTok{(x.df[,}\DecValTok{1}\NormalTok{])  }\CommentTok{\# first column is no longer a data frame}
+\NormalTok{[}\DecValTok{1}\NormalTok{] }\StringTok{"numeric"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}[<+->]
+\tightlist
+\item
+  One column of a data frame is no longer a data frame
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Subsetting: Data frames}
+\protect\hypertarget{subsetting-data-frames-1}{}
+\begin{itemize}[<+->]
+\tightlist
+\item
+  but \emph{one row} with 2 or more columns (variables) is still a data
+  frame
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\SpecialCharTok{\textgreater{}}\NormalTok{ x.df[}\DecValTok{1}\NormalTok{, }\DecValTok{1}\SpecialCharTok{:}\DecValTok{2}\NormalTok{]  }\CommentTok{\# 1 row, 2 columns}
+\NormalTok{  x double.x}
+\DecValTok{1} \DecValTok{8}       \DecValTok{16}
+\SpecialCharTok{\textgreater{}} \FunctionTok{class}\NormalTok{(x.df[}\DecValTok{1}\NormalTok{, }\DecValTok{1}\SpecialCharTok{:}\DecValTok{2}\NormalTok{])}
+\NormalTok{[}\DecValTok{1}\NormalTok{] }\StringTok{"data.frame"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}[<+->]
+\tightlist
+\item
+  Remember that data frames are built from \textbf{lists} of variables
+  (vectors) so they are different objects than matrices
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Subsetting: Data frames}
+\protect\hypertarget{subsetting-data-frames-2}{}
+\begin{itemize}[<+->]
+\tightlist
+\item
+  or access columns with \texttt{\$}
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\SpecialCharTok{\textgreater{}}\NormalTok{ x.df}\SpecialCharTok{$}\NormalTok{x  }\CommentTok{\# get variable x column}
+\NormalTok{[}\DecValTok{1}\NormalTok{] }\DecValTok{8} \DecValTok{2} \DecValTok{1} \DecValTok{3}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}[<+->]
+\tightlist
+\item
+  you can also use column names to subset:
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\SpecialCharTok{\textgreater{}}\NormalTok{ loans[}\DecValTok{1}\SpecialCharTok{:}\DecValTok{2}\NormalTok{,}\FunctionTok{c}\NormalTok{(}\StringTok{"Good.Loan"}\NormalTok{,}\StringTok{"Credit.amount"}\NormalTok{)] }\CommentTok{\# get 2 rows of Good.Loan and Credit.amount}
+\NormalTok{  Good.Loan Credit.amount}
+\DecValTok{1}\NormalTok{  GoodLoan          }\DecValTok{1169}
+\DecValTok{2}\NormalTok{   BadLoan          }\DecValTok{5951}
+\end{Highlighting}
+\end{Shaded}
+\end{frame}
+
+\begin{frame}[fragile]{Subsetting: Lists}
+\protect\hypertarget{subsetting-lists}{}
+\begin{itemize}[<+->]
+\tightlist
+\item
+  Recall: a \textbf{list} is a vector with entries that can be different
+  object types
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\SpecialCharTok{\textgreater{}}\NormalTok{ my.list }\OtherTok{\textless{}{-}} \FunctionTok{list}\NormalTok{(}\AttributeTok{myVec=}\NormalTok{x, }\AttributeTok{myDf=}\NormalTok{x.df, }\AttributeTok{myString=}\FunctionTok{c}\NormalTok{(}\StringTok{"hi"}\NormalTok{,}\StringTok{"bye"}\NormalTok{))}
+\SpecialCharTok{\textgreater{}}\NormalTok{ my.list}
+\SpecialCharTok{$}\NormalTok{myVec}
+\NormalTok{[}\DecValTok{1}\NormalTok{] }\DecValTok{8} \DecValTok{2} \DecValTok{1} \DecValTok{3}
+
+\SpecialCharTok{$}\NormalTok{myDf}
+\NormalTok{  x double.x}
+\DecValTok{1} \DecValTok{8}       \DecValTok{16}
+\DecValTok{2} \DecValTok{2}        \DecValTok{4}
+\DecValTok{3} \DecValTok{1}        \DecValTok{2}
+\DecValTok{4} \DecValTok{3}        \DecValTok{6}
+
+\SpecialCharTok{$}\NormalTok{myString}
+\NormalTok{[}\DecValTok{1}\NormalTok{] }\StringTok{"hi"}  \StringTok{"bye"}
+\end{Highlighting}
+\end{Shaded}
+\end{frame}
+
+\begin{frame}[fragile]{Subsetting: Lists}
+\protect\hypertarget{subsetting-lists-1}{}
+\begin{itemize}[<+->]
+\tightlist
+\item
+  one \texttt{{[}{]}} operator gives you the object at the given
+  location but preserves the list type
+\item
+  \texttt{my.list{[}2{]}} return a \textbf{list} of length one with
+  entry \texttt{myDf}
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\SpecialCharTok{\textgreater{}}\NormalTok{ my.list[}\DecValTok{2}\NormalTok{]}
+\SpecialCharTok{$}\NormalTok{myDf}
+\NormalTok{  x double.x}
+\DecValTok{1} \DecValTok{8}       \DecValTok{16}
+\DecValTok{2} \DecValTok{2}        \DecValTok{4}
+\DecValTok{3} \DecValTok{1}        \DecValTok{2}
+\DecValTok{4} \DecValTok{3}        \DecValTok{6}
+\SpecialCharTok{\textgreater{}} \FunctionTok{str}\NormalTok{(my.list[}\DecValTok{2}\NormalTok{])}
+\NormalTok{List of }\DecValTok{1}
+ \SpecialCharTok{$}\NormalTok{ myDf}\SpecialCharTok{:}\StringTok{\textquotesingle{}data.frame\textquotesingle{}}\SpecialCharTok{:}   \DecValTok{4}\NormalTok{ obs. of  }\DecValTok{2}\NormalTok{ variables}\SpecialCharTok{:}
+\NormalTok{  ..}\SpecialCharTok{$}\NormalTok{ x       }\SpecialCharTok{:}\NormalTok{ num [}\DecValTok{1}\SpecialCharTok{:}\DecValTok{4}\NormalTok{] }\DecValTok{8} \DecValTok{2} \DecValTok{1} \DecValTok{3}
+\NormalTok{  ..}\SpecialCharTok{$}\NormalTok{ double.x}\SpecialCharTok{:}\NormalTok{ num [}\DecValTok{1}\SpecialCharTok{:}\DecValTok{4}\NormalTok{] }\DecValTok{16} \DecValTok{4} \DecValTok{2} \DecValTok{6}
+\end{Highlighting}
+\end{Shaded}
+\end{frame}
+
+\begin{frame}[fragile]{Subsetting: Lists}
+\protect\hypertarget{subsetting-lists-2}{}
+\begin{itemize}[<+->]
+\tightlist
+\item
+  the double \texttt{{[}{[}{]}{]}} operator gives you the object stored
+  at that location
+
+  \begin{itemize}[<+->]
+  \tightlist
+  \item
+    can enter location number or entry name
+  \end{itemize}
+\item
+  \texttt{my.list{[}{[}2{]}{]}} or \texttt{my.list{[}{[}"myDf"{]}{]}}
+  return the \textbf{data frame} \texttt{myDf}
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\SpecialCharTok{\textgreater{}}\NormalTok{ my.list[[}\DecValTok{2}\NormalTok{]]}
+\NormalTok{  x double.x}
+\DecValTok{1} \DecValTok{8}       \DecValTok{16}
+\DecValTok{2} \DecValTok{2}        \DecValTok{4}
+\DecValTok{3} \DecValTok{1}        \DecValTok{2}
+\DecValTok{4} \DecValTok{3}        \DecValTok{6}
+\SpecialCharTok{\textgreater{}} \FunctionTok{str}\NormalTok{(my.list[[}\DecValTok{2}\NormalTok{]])}
+\StringTok{\textquotesingle{}data.frame\textquotesingle{}}\SpecialCharTok{:}   \DecValTok{4}\NormalTok{ obs. of  }\DecValTok{2}\NormalTok{ variables}\SpecialCharTok{:}
+ \ErrorTok{$}\NormalTok{ x       }\SpecialCharTok{:}\NormalTok{ num  }\DecValTok{8} \DecValTok{2} \DecValTok{1} \DecValTok{3}
+ \SpecialCharTok{$}\NormalTok{ double.x}\SpecialCharTok{:}\NormalTok{ num  }\DecValTok{16} \DecValTok{4} \DecValTok{2} \DecValTok{6}
+\SpecialCharTok{\textgreater{}}\NormalTok{ my.list[[}\StringTok{"myDf"}\NormalTok{]]}
+\NormalTok{  x double.x}
+\DecValTok{1} \DecValTok{8}       \DecValTok{16}
+\DecValTok{2} \DecValTok{2}        \DecValTok{4}
+\DecValTok{3} \DecValTok{1}        \DecValTok{2}
+\DecValTok{4} \DecValTok{3}        \DecValTok{6}
+\end{Highlighting}
+\end{Shaded}
+\end{frame}
+
+\begin{frame}[fragile]{Subsetting: Lists}
+\protect\hypertarget{subsetting-lists-3}{}
+\begin{itemize}[<+->]
+\tightlist
+\item
+  Like a data frame, can use the \texttt{\$} to access objects stored in
+  the list
+
+  \begin{itemize}[<+->]
+  \tightlist
+  \item
+    equivalent to using \texttt{{[}{[}{]}{]}}
+  \end{itemize}
+\item
+  \texttt{my.list\$myDf} return the \textbf{data frame} \texttt{myDf}
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\SpecialCharTok{\textgreater{}}\NormalTok{ my.list}\SpecialCharTok{$}\NormalTok{myDf}
+\NormalTok{  x double.x}
+\DecValTok{1} \DecValTok{8}       \DecValTok{16}
+\DecValTok{2} \DecValTok{2}        \DecValTok{4}
+\DecValTok{3} \DecValTok{1}        \DecValTok{2}
+\DecValTok{4} \DecValTok{3}        \DecValTok{6}
+\SpecialCharTok{\textgreater{}} \FunctionTok{class}\NormalTok{(my.list}\SpecialCharTok{$}\NormalTok{myDf)}
+\NormalTok{[}\DecValTok{1}\NormalTok{] }\StringTok{"data.frame"}
+\end{Highlighting}
+\end{Shaded}
+\end{frame}
+
+\begin{frame}[fragile]{Functions}
+\protect\hypertarget{functions}{}
+\begin{itemize}[<+->]
+\tightlist
+\item
+  a function takes in objects and arguments and produces a new object
+\item
+  here are the various types of \texttt{mean} functions in R: (can
+  depend on packages loaded)
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\SpecialCharTok{\textgreater{}} \FunctionTok{methods}\NormalTok{(mean)}
+\NormalTok{[}\DecValTok{1}\NormalTok{] mean.Date     mean.default  mean.difftime mean.POSIXct  mean.POSIXlt }
+\NormalTok{[}\DecValTok{6}\NormalTok{] mean.quosure}\SpecialCharTok{*}
+\NormalTok{see }\StringTok{\textquotesingle{}?methods\textquotesingle{}} \ControlFlowTok{for}\NormalTok{ accessing help and source code}
+\end{Highlighting}
+\end{Shaded}
+\end{frame}
+
+\begin{frame}[fragile]{Functions}
+\protect\hypertarget{functions-1}{}
+\begin{itemize}[<+->]
+\tightlist
+\item
+  the default mean function code is here:
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\SpecialCharTok{\textgreater{}}\NormalTok{ mean.default}
+\ControlFlowTok{function}\NormalTok{ (x, }\AttributeTok{trim =} \DecValTok{0}\NormalTok{, }\AttributeTok{na.rm =} \ConstantTok{FALSE}\NormalTok{, ...) }
+\NormalTok{\{}
+    \ControlFlowTok{if}\NormalTok{ (}\SpecialCharTok{!}\FunctionTok{is.numeric}\NormalTok{(x) }\SpecialCharTok{\&\&} \SpecialCharTok{!}\FunctionTok{is.complex}\NormalTok{(x) }\SpecialCharTok{\&\&} \SpecialCharTok{!}\FunctionTok{is.logical}\NormalTok{(x)) \{}
+        \FunctionTok{warning}\NormalTok{(}\StringTok{"argument is not numeric or logical: returning NA"}\NormalTok{)}
+        \FunctionTok{return}\NormalTok{(}\ConstantTok{NA\_real\_}\NormalTok{)}
+\NormalTok{    \}}
+    \ControlFlowTok{if}\NormalTok{ (na.rm) }
+\NormalTok{        x }\OtherTok{\textless{}{-}}\NormalTok{ x[}\SpecialCharTok{!}\FunctionTok{is.na}\NormalTok{(x)]}
+    \ControlFlowTok{if}\NormalTok{ (}\SpecialCharTok{!}\FunctionTok{is.numeric}\NormalTok{(trim) }\SpecialCharTok{||} \FunctionTok{length}\NormalTok{(trim) }\SpecialCharTok{!=}\NormalTok{ 1L) }
+        \FunctionTok{stop}\NormalTok{(}\StringTok{"\textquotesingle{}trim\textquotesingle{} must be numeric of length one"}\NormalTok{)}
+\NormalTok{    n }\OtherTok{\textless{}{-}} \FunctionTok{length}\NormalTok{(x)}
+    \ControlFlowTok{if}\NormalTok{ (trim }\SpecialCharTok{\textgreater{}} \DecValTok{0} \SpecialCharTok{\&\&}\NormalTok{ n) \{}
+        \ControlFlowTok{if}\NormalTok{ (}\FunctionTok{is.complex}\NormalTok{(x)) }
+            \FunctionTok{stop}\NormalTok{(}\StringTok{"trimmed means are not defined for complex data"}\NormalTok{)}
+        \ControlFlowTok{if}\NormalTok{ (}\FunctionTok{anyNA}\NormalTok{(x)) }
+            \FunctionTok{return}\NormalTok{(}\ConstantTok{NA\_real\_}\NormalTok{)}
+        \ControlFlowTok{if}\NormalTok{ (trim }\SpecialCharTok{\textgreater{}=} \FloatTok{0.5}\NormalTok{) }
+            \FunctionTok{return}\NormalTok{(stats}\SpecialCharTok{::}\FunctionTok{median}\NormalTok{(x, }\AttributeTok{na.rm =} \ConstantTok{FALSE}\NormalTok{))}
+\NormalTok{        lo }\OtherTok{\textless{}{-}} \FunctionTok{floor}\NormalTok{(n }\SpecialCharTok{*}\NormalTok{ trim) }\SpecialCharTok{+} \DecValTok{1}
+\NormalTok{        hi }\OtherTok{\textless{}{-}}\NormalTok{ n }\SpecialCharTok{+} \DecValTok{1} \SpecialCharTok{{-}}\NormalTok{ lo}
+\NormalTok{        x }\OtherTok{\textless{}{-}} \FunctionTok{sort.int}\NormalTok{(x, }\AttributeTok{partial =} \FunctionTok{unique}\NormalTok{(}\FunctionTok{c}\NormalTok{(lo, hi)))[lo}\SpecialCharTok{:}\NormalTok{hi]}
+\NormalTok{    \}}
+    \FunctionTok{.Internal}\NormalTok{(}\FunctionTok{mean}\NormalTok{(x))}
+\NormalTok{\}}
+\SpecialCharTok{\textless{}}\NormalTok{bytecode}\SpecialCharTok{:} \DecValTok{0x7fd388841278}\SpecialCharTok{\textgreater{}}
+\ErrorTok{\textless{}}\NormalTok{environment}\SpecialCharTok{:}\NormalTok{ namespace}\SpecialCharTok{:}\NormalTok{base}\SpecialCharTok{\textgreater{}}
+\end{Highlighting}
+\end{Shaded}
+\end{frame}
+
+\begin{frame}[fragile]{Functions}
+\protect\hypertarget{functions-2}{}
+\begin{itemize}[<+->]
+\tightlist
+\item
+  Function creation is not something we will emphasize in this Data
+  Science course, but you should be able to create simple functions
+\end{itemize}
+
+\begin{verbatim}
+my.function <- function(arguments)
+{
+  code that does the work
+  
+  return(list(objects that you are returning))
+}
+\end{verbatim}
+
+\begin{itemize}[<+->]
+\tightlist
+\item
+  If you are returning only one object, you don't need the \texttt{list}
+  function in \texttt{return}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Functions}
+\protect\hypertarget{functions-3}{}
+\begin{itemize}[<+->]
+\tightlist
+\item
+  This function returns the mean and SD of a vector and (possibly)
+  creates a histogram
+
+  \begin{itemize}[<+->]
+  \tightlist
+  \item
+    input: variable \texttt{x}, plotting argument (default is
+    \texttt{FALSE})
+  \item
+    \ldots: optional arguments that might be used in \texttt{mean} and
+    \texttt{sd}
+  \item
+    output: list of mean and sd
+  \end{itemize}
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\SpecialCharTok{\textgreater{}}\NormalTok{ MeanSD }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(x,}\AttributeTok{plot=}\ConstantTok{FALSE}\NormalTok{,...)}
+\SpecialCharTok{+}\NormalTok{ \{}
+\SpecialCharTok{+}\NormalTok{   mean.x }\OtherTok{\textless{}{-}} \FunctionTok{mean}\NormalTok{(x,...)}
+\SpecialCharTok{+}\NormalTok{   sd.x }\OtherTok{\textless{}{-}} \FunctionTok{sd}\NormalTok{(x,...)}
+\SpecialCharTok{+}   \ControlFlowTok{if}\NormalTok{ (plot) }
+\SpecialCharTok{+}     \FunctionTok{hist}\NormalTok{(x)}
+\SpecialCharTok{+}   \FunctionTok{return}\NormalTok{(}\FunctionTok{list}\NormalTok{(}\AttributeTok{Mean=}\NormalTok{mean.x,}\AttributeTok{SD=}\NormalTok{sd.x))}
+\SpecialCharTok{+}\NormalTok{ \}}
+\end{Highlighting}
+\end{Shaded}
+\end{frame}
+
+\begin{frame}[fragile]{Functions}
+\protect\hypertarget{functions-4}{}
+\begin{itemize}[<+->]
+\tightlist
+\item
+  A simple example:
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\SpecialCharTok{\textgreater{}} \FunctionTok{MeanSD}\NormalTok{(loans}\SpecialCharTok{$}\NormalTok{Credit.amount)}
+\SpecialCharTok{$}\NormalTok{Mean}
+\NormalTok{[}\DecValTok{1}\NormalTok{] }\FloatTok{3271.258}
+
+\SpecialCharTok{$}\NormalTok{SD}
+\NormalTok{[}\DecValTok{1}\NormalTok{] }\FloatTok{2822.737}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}[<+->]
+\tightlist
+\item
+  Function output is a list:
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\SpecialCharTok{\textgreater{}} \FunctionTok{str}\NormalTok{(}\FunctionTok{MeanSD}\NormalTok{(loans}\SpecialCharTok{$}\NormalTok{Credit.amount))}
+\NormalTok{List of }\DecValTok{2}
+ \SpecialCharTok{$}\NormalTok{ Mean}\SpecialCharTok{:}\NormalTok{ num }\DecValTok{3271}
+ \SpecialCharTok{$}\NormalTok{ SD  }\SpecialCharTok{:}\NormalTok{ num }\DecValTok{2823}
+\end{Highlighting}
+\end{Shaded}
+\end{frame}
+
+\begin{frame}[fragile]{Functions}
+\protect\hypertarget{functions-5}{}
+Add plotting argument:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\SpecialCharTok{\textgreater{}} \FunctionTok{MeanSD}\NormalTok{(loans}\SpecialCharTok{$}\NormalTok{Credit.amount, }\AttributeTok{plot=}\ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{day3_RObjectsSlides_files/figure-beamer/unnamed-chunk-35-1.pdf}
+
+\begin{verbatim}
+$Mean
+[1] 3271.258
+
+$SD
+[1] 2822.737
+\end{verbatim}
+\end{frame}
+
+\end{document}

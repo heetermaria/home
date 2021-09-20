@@ -1,12 +1,14 @@
 ---
-title: "R: nuts and bolts" 
+title: 'R: nuts and bolts'
 author: "ECON 122"
 date: "Day 3"
-output: 
+output:
   ioslides_presentation:
-    incremental: true
-    widescreen: true
-    keep_md: false
+    incremental: yes
+    widescreen: yes
+    keep_md: no
+  beamer_presentation:
+    incremental: yes
 ---
 
 ```{r setup, include=FALSE}

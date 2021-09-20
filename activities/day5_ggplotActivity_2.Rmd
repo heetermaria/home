@@ -9,6 +9,11 @@ output: github_document
 knitr::opts_chunk$set(collapse=TRUE, prompt=TRUE, eval=TRUE, message=F, include=T,comment=NULL)
 ```
 
+```{r}
+MainStates <- map_data("state")
+str(MainStates)
+```
+
 ## Analyzing COVID-19 data 
 Data for this section was downloaded from  [The New York Times](https://github.com/nytimes/covid-19-data/tree/master/rolling-averages) COVID-19 case data.
 
@@ -32,9 +37,45 @@ SEP_21 <- COVID_DATA %>% filter(date == "2021-09-01")
 ### Question 1: Create a series of four maps of the US states that shows the case load at each snapshot in time. Label each map appropiately so we can tell the difference between them.
 *Hint:* The lecture notes on mapping can help guide you
 
+```{r, fig.height=3.7}
+ggplot() + coord_map() + geom_map(data=APR_20, aes(map_id = region, fill = cases), map = MainStates) + expand_limits(x=MainStates$long, y=MainStates$lat) + ggtitle("Covid-19 Cases Per State, April 2020")
+```
+```{r, fig.height=3.7}
+ggplot() + coord_map() + geom_map(data=AUG_20, aes(map_id = region, fill = cases), map = MainStates) + expand_limits(x=MainStates$long, y=MainStates$lat) + ggtitle("Case Load Per State, 1st Chunk")
+```
+
+```{r, fig.height=3.7}
+ggplot() + coord_map() + geom_map(data=JAN_21, aes(map_id = region, fill = cases), map = MainStates) + expand_limits(x=MainStates$long, y=MainStates$lat) + ggtitle("Case Load Per State, 1st Chunk")
+```
+
+```{r, fig.height=3.7}
+ggplot() + coord_map() + geom_map(data=SEP_21, aes(map_id = region, fill = cases), map = MainStates) + expand_limits(x=MainStates$long, y=MainStates$lat) + ggtitle("Case Load Per State, 1st Chunk")
+```
+
 ### Question 2: For each wave, which region of the US is most impacted? 
 
+# First wave: New York 
+# Second wave: FL, Texas, CA 
+# Third wave: CA
+# Fourth wave: CA, Texas
+
+
 ### Question 3: Play around with the palette colors. Are there some color schemes that work better than others for visualizing the case counts? 
+
+```{r, fig.height=3.7}
+mymap <- ggplot() + coord_map() + geom_map(data=SEP_21, aes(map_id = region, fill = cases), map = MainStates) + expand_limits(x=MainStates$long, y=MainStates$lat) + ggtitle("Case Load Per State, 1st Chunk") 
+```
+
+```{r, fig.height=3.7}
+mymap + scale_fill_distiller(palette = "Reds")
+```
+```{r, fig.height=3.7}
+mymap + scale_fill_gradient(low="lightpink", high="purple4")
+```
+
+``` {r fig}
+
+```
 
 ## Graphs for categorical variables
 Survey data is a good source for variables with categorical responses. We will switch to data collected from the 2013 Pew Survey of LGBT Americans. Non-responses are denoted as blank spaces in the dataset and we need to inform R of this when reading in this `.csv` (otherwise blank responses will be treated as an actual response level when R reads in this type of (mainly) factor data):
@@ -51,9 +92,16 @@ a + geom_bar()
 
 ### Question 4: What happens if you change coordinate systems and add `coord_polar()` to the last plot? (This is called a Coxcomb graph.)
 
+```{r}                                             
+a <- ggplot(pew, aes(x=LGBT) )
+a + geom_bar() 
+```
+
+# makes it into a pi chart ... but a bad one! 
+
 You can rotate labels by rotating text on the x-axis.
 ```{r}
-a + geom_bar() + theme(axis.text.x=element_text(angle=60,hjust=1))
+a + geom_bar() + theme(axis.text.x=element_text(angle=60,hjust=1)) 
 ```
 
 ### Question 5: What happens when you change the `hjust` number to something bigger? something negative?
@@ -67,12 +115,18 @@ Note that the scale type is `fill`, so we used `scale_fill_discrete` to change t
 
 Let's make another change by adding `position=fill` to the `bar` geom:
 ```{r}
-a + geom_bar(aes(fill=Q2), position="fill") + scale_fill_discrete(name="Nation headed in")
+a <- a + geom_bar(aes(fill=Q2), position="fill") + scale_fill_discrete(name="Nation headed in")
 ```
 
 ### Question 6: What is the scale of the y-axis? Once you figure this out, change the label from `count` to something more appropriate. Is there an association between LGBT identity and the response to the right track/wrong track question? 
 
+``` {r}
+a + ylab("Ratio")
+```
+
 ### Question 7: What do the gray sections represent? The gray sections are present in the count version of this graph, but why are they hard to see? 
+
+# Grey is N/A...
 
 ### Question 8: Facet the previous graph by `PARTY`, the political affiliation of the respondent. Does the relationship between LGBT and right track/wrong track seem to depend upon `PARTY`?
 

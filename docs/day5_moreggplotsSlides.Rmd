@@ -1,13 +1,15 @@
 ---
-title: "`ggplot` maps and colors" 
+title: '`ggplot` maps and colors'
 author: "ECON 122"
 date: "Day 5"
-output: 
-  ioslides_presentation:
-    incremental: true
-    widescreen: true
-    keep_md: false
+output:
+  beamer_presentation:
+    incremental: yes
   github_document: default
+  ioslides_presentation:
+    incremental: yes
+    widescreen: yes
+    keep_md: no
 ---
 
 ```{r setup, include=FALSE}
