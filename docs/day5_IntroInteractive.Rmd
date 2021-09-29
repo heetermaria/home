@@ -28,7 +28,7 @@ lapply(mypacks, library, character.only=TRUE)  # load all packages
 
 ## Using `plotly`
 
-- The R package `ployly` makes quick and easy interactive graphs 
+- The R package `plotly` makes quick and easy interactive graphs 
     + hovering, brushing, zooming, tracing
 - Can upload graphs to the web
 

@@ -66,20 +66,16 @@ ls()
 ```
 - Please don't use `=` for variable assignment!!!
 
-## Data structures and types | Shape and computer storage 
-
-<img src="http://r4ds.had.co.nz/diagrams/data-structures-overview.png" width=50%>
-
 ## Data types | Determines computer storage of info {.build}
 
 - Important data types
     - Logical: TRUE and FALSE are the only values
     - Numeric class: Integer and double
+        - default is double
     - Character: string ("") of text 
 
 ```{r}
 typeof(x)  # type of storage mode 
-class(x)   # object class is numeric
 typeof("abc")
 x == 1
 typeof(x == 1)
@@ -126,7 +122,7 @@ x.mat2
 - A **data frame** is a list of atomic vectors of the same length, but not necessarily the same data type
 - the `loans` data frame has columns that are `integer` and `factor` types
 ```{r}
-loans <- read.csv("https://raw.githubusercontent.com/mgelman/data/master/CreditData.csv")
+loans <- read.csv("https://raw.githubusercontent.com/mgelman/data/master/CreditData.csv",stringsAsFactors=TRUE)
 class(loans)
 typeof(loans)
 str(loans)
@@ -300,35 +296,19 @@ my.list$myDf
 class(my.list$myDf)
 ```
 
-
 ## Functions {.build}
 
-- a function takes in objects and arguments and produces a new object
-- here are the various types of `mean` functions in R: (can depend on packages loaded) 
-```{r}
-methods(mean)
-```
-
-## Functions {.build .smaller}
-
-- the default mean function code is here:
-```{r}
-mean.default
-```
-
-## Functions {.build}
-
+- A function takes in objects and arguments and produces a new object
 - Function creation is not something we will emphasize in this Data Science course, but you should be able to create simple functions
 
 ```
-my.function <- function(arguments)
+my.function <- function(objects,arguments)
 {
   code that does the work
   
   return(list(objects that you are returning))
 }
 ```
-- If you are returning only one object, you don't need the `list` function in `return` 
 
 ## Functions {.build}
 

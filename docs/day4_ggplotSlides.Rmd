@@ -115,6 +115,7 @@ ggplot(data=survey, aes(x=Question.15)) + geom_histogram()
 ```{r, fig.height=3.5}
 ggplot(data=survey, aes(x=Question.15)) + geom_histogram() + facet_wrap(~Question.16)
 ```
+
 - Note: need `~` before the variable for `facet_wrap()`
 
 ## Another option  {.build}
@@ -211,10 +212,3 @@ ggplot(survey, aes(x=Question.12,y=Question.15)) +
   scale_size_continuous(name="tv hours/week")
 ```
 
-## Bar graphs {.build}
-
-How does political comfort level (Q9) vary by religious group (Q8)?
-```{r, fig.height=3.5, fig.width=8}
-levels(survey$Question.8) <- c("not religious","religious, active", "religious, not active")
-ggplot(survey, aes(x=Question.8, fill=Question.9)) + geom_bar(position="fill")
-```
