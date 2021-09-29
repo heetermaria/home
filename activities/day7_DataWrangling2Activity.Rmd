@@ -23,12 +23,23 @@ The `nycflights13` package contains multiple data sets describing `flights` depa
 #### 1. Take a look at the `flights` `airlines` and `airports` data set help files.
 
 - What variable(s) are the keys that connect the `flights` and `airlines` data sets?
-- What variable(s) are the keys that connect the `flights` and `airports` data sets?
+Carrier/airlines connect the two datasets 
 
+- What variable(s) are the keys that connect the `flights` and `airports` data sets?
+Origin & destination ... FAA
 
 #### 2. Merging  `airports` and `flights` data. 
 
 - How many unique flight destintations in `flights` are not given in the `airports` data? (Hint: look at `anti_join` or `semi_join`)
+
+```{r}
+
+anti_join(x,y, by=c("x_key"="y_key"))
+
+```
+
+
+
 - How many airports given in `airports` are not destinations given in `flights`?
 - Use `left_join` to add `airports` info to the `flights` data. How many rows are there in this joined data? Then repeat using `inner_join` and `full_join`. Explain the differences in row counts for these three ways of joining. 
 - Calcuate the median `arr_delay`, average flight `distance`, and number of flights for each destination. Plot mean distance vs mean arrival delay, using number of flights to determine point size. Describe the trend you see. 
